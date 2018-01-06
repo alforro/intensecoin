@@ -27,29 +27,29 @@ namespace parameters {
 const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
 const size_t   CRYPTONOTE_MAX_TX_SIZE                        = 1000000000;
-const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0xfb; // addresses start with "i"
-const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 60;
+const uint64_t CRYPTONOTE_PUBLIC_ADDRESS_BASE58_PREFIX       = 0x1a36c9; // addresses start with "amx"
+const uint32_t CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW          = 20;
 const uint64_t CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT            = 60 * 60 * 2;
 
 const size_t   BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW             = 60;
 
 // MONEY_SUPPLY - total number coins to be generated
-const uint64_t MONEY_SUPPLY									 = UINT64_C(99948151623421337);
+const uint64_t MONEY_SUPPLY									 = UINT64_C(15000000000000);
 const uint64_t FINAL_SUBSIDY_PER_MINUTE						 = UINT64_C(2900000000);
-const unsigned EMISSION_SPEED_FACTOR                         = 19;
+const unsigned EMISSION_SPEED_FACTOR                         = 1;
 static_assert(EMISSION_SPEED_FACTOR <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 1000000; //size of block (bytes) after which reward for block calculated using block size
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 1000000;
-const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 20000;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 100000; //size of block (bytes) after which reward for block calculated using block size
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2  = 100000;
+const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V1  = 2000;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_CURRENT = CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE;
 const size_t   CRYPTONOTE_COINBASE_BLOB_RESERVED_SIZE        = 600;
-const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
-const uint64_t MINIMUM_FEE                                   = UINT64_C(100000);    // pow(10, 5)
-const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(100000);    // pow(10, 5)
+const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 6;
+const uint64_t MINIMUM_FEE                                   = UINT64_C(1000);    // pow(10, 5)
+const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(1000);    // pow(10, 5)
 
-const uint64_t DIFFICULTY_TARGET                             = 120; // seconds
+const uint64_t DIFFICULTY_TARGET                             = 60; // seconds
 const uint64_t EXPECTED_NUMBER_OF_BLOCKS_PER_DAY             = 24 * 60 * 60 / DIFFICULTY_TARGET;
 const size_t   DIFFICULTY_WINDOW                             = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY; // blocks
 const size_t   DIFFICULTY_CUT                                = 60;  // timestamps to cut after sorting
@@ -78,9 +78,9 @@ const size_t   FUSION_TX_MIN_INPUT_COUNT                     = 12;
 const size_t   FUSION_TX_MIN_IN_OUT_COUNT_RATIO              = 4;
 
 const uint32_t KEY_IMAGE_CHECKING_BLOCK_INDEX                = 5500;
-const uint32_t UPGRADE_HEIGHT_V2                             = 50000;
+const uint32_t UPGRADE_HEIGHT_V2                             = 1;
 const uint32_t UPGRADE_HEIGHT_MAX_BLOCK_SIZE				 = 65000;
-const uint32_t UPGRADE_HEIGHT_V3                             = 76500;
+const uint32_t UPGRADE_HEIGHT_V3                             = 30;
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90;               // percent
 const uint32_t UPGRADE_VOTING_WINDOW                         = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY;  // blocks
 const uint32_t UPGRADE_WINDOW                                = EXPECTED_NUMBER_OF_BLOCKS_PER_DAY;  // blocks
@@ -94,7 +94,7 @@ const char     P2P_NET_DATA_FILENAME[]                       = "p2pstate.bin";
 const char     MINER_CONFIG_FILE_NAME[]                      = "miner_conf.json";
 } // parameters
 
-const char     CRYPTONOTE_NAME[]                             = "intensecoin";
+const char     CRYPTONOTE_NAME[]                             = "amero";
 
 const uint8_t  TRANSACTION_VERSION_1                         =  1;
 const uint8_t  TRANSACTION_VERSION_2                         =  2;
@@ -109,8 +109,8 @@ const size_t   BLOCKS_IDS_SYNCHRONIZING_DEFAULT_COUNT        =  10000;  //by def
 const size_t   BLOCKS_SYNCHRONIZING_DEFAULT_COUNT            =  100;    //by default, blocks count in blocks downloading
 const size_t   COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT         =  1000;
 
-const int      P2P_DEFAULT_PORT                              =  48772;
-const int      RPC_DEFAULT_PORT                              =  48782;
+const int      P2P_DEFAULT_PORT                              =  24142;
+const int      RPC_DEFAULT_PORT                              =  25152;
 
 const size_t   P2P_LOCAL_WHITE_PEERLIST_LIMIT                =  1000;
 const size_t   P2P_LOCAL_GRAY_PEERLIST_LIMIT                 =  5000;
@@ -128,15 +128,8 @@ const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          //
 const char     P2P_STAT_TRUSTED_PUB_KEY[] = "b878340c70329702e0ab40a0f3475d9a5edf36db6892d759f7fb9b601a001cb3";
 
 const char* const SEED_NODES[] = {
-	"192.124.18.154:48772",
-	"104.200.65.202:48772",
-	"45.32.171.89:48772",
-	"77.95.32.60:48772",
-	"31.22.1.13:48772",  
-	"31.22.1.14:48772",
-	"31.22.3.82:48772",
-	"31.22.3.83:48772",
-	"31.22.3.84:48772",
+	"seed1.ameroplus.com:24142",
+	"seed2.ameroplus.com:24142",
 };
 
 struct CheckpointData {

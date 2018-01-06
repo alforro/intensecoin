@@ -98,7 +98,7 @@ bool Currency::generateGenesisBlock() {
   //std::string hex_tx_represent = Common::toHex(txb);
 
   // Hard code coinbase tx in genesis block, because through generating tx use random, but genesis should be always the same
-  std::string genesisCoinbaseTxHex = "013c01ff0001af9ea896c605029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101e444827ebec7bfe1938c8505128cbcf59343e9651afb0893d3d664f560fd216f";
+  std::string genesisCoinbaseTxHex = "010a01ff000180f0d7d6a3da01029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121014bcb356a5cba2fe700cec72d60329466f6d1d4f03e5348db9ed0604b4e194733";
   BinaryArray minerTxBlob;
 
   bool r =
@@ -132,9 +132,9 @@ size_t Currency::blockGrantedFullRewardZoneByBlockVersion(uint8_t blockMajorVers
   }
 }
 
-size_t Currency::difficultyBlocksCount(uint32_t height) const { 
+size_t Currency::difficultyBlocksCount(uint32_t height) const {
 	if (height < m_upgradeHeightV3)
-		return m_difficultyWindow + m_difficultyLag; 
+		return m_difficultyWindow + m_difficultyLag;
 	else
 		return m_difficultyWindow_v2;
 }
@@ -353,7 +353,7 @@ bool Currency::isAmountApplicableInFusionTransactionInput(uint64_t amount, uint6
   auto it = std::lower_bound(PRETTY_AMOUNTS.begin(), PRETTY_AMOUNTS.end(), amount);
   if (it == PRETTY_AMOUNTS.end() || amount != *it) {
     return false;
-  } 
+  }
 
   amountPowerOfTen = static_cast<uint8_t>(std::distance(PRETTY_AMOUNTS.begin(), it) / 9);
   return true;
@@ -743,7 +743,7 @@ CurrencyBuilder::CurrencyBuilder(Logging::ILogger& log) : m_currency(log) {
   fusionTxMaxSize(parameters::FUSION_TX_MAX_SIZE);
   fusionTxMinInputCount(parameters::FUSION_TX_MIN_INPUT_COUNT);
   fusionTxMinInOutCountRatio(parameters::FUSION_TX_MIN_IN_OUT_COUNT_RATIO);
-  
+
   upgradeHeightMaxBlockSize(parameters::UPGRADE_HEIGHT_MAX_BLOCK_SIZE);
   upgradeHeightV2(parameters::UPGRADE_HEIGHT_V2);
   upgradeHeightV3(parameters::UPGRADE_HEIGHT_V3);
