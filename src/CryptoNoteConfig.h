@@ -128,8 +128,8 @@ const size_t   P2P_DEFAULT_HANDSHAKE_INVOKE_TIMEOUT          = 5000;          //
 const char     P2P_STAT_TRUSTED_PUB_KEY[] = "b878340c70329702e0ab40a0f3475d9a5edf36db6892d759f7fb9b601a001cb3";
 
 const char* const SEED_NODES[] = {
-	"seed1.ameroplus.com:24142",
-	"seed2.ameroplus.com:24142",
+	"seed1.ameroplus.org:24142",
+	"seed2.ameroplus.org:24142",
 };
 
 struct CheckpointData {
